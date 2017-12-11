@@ -1,0 +1,3 @@
+---
+- name: configure aliases
+  template: src=files/alias.tpl dest=~/.bash_aliases
