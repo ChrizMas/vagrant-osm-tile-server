@@ -1,0 +1,42 @@
+---
+- name: Add apt repository
+  become: "yes"
+  apt_repository:
+    repo: 'ppa:ubuntu-toolchain-r/test'
+
+- name: "Install mapnik packages"
+  become: "yes"
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gcc-6
+    - g++-6
+    - clang-3.8
+    - python
+    - zlib1g-dev
+    - clang
+    - make
+    - pkg-config
+    - curl
+
+- name: "Add ENV variable: CXX"
+  shell: echo CXX is $CXX
+  environment:
+    CXX: clang++-3.8
+
+- name: "Add ENV variable: CC"
+  shell: echo CC is $CC
+  environment:
+    CC: clang-3.8
+
+- name: "Create src directory"
+  file:
+    path: ~/src
+    state: directory
+    mode: 0755
+
+- name: "Clone from github and install"
+  script: files/clone-mapnik.sh
+  args:
+    creates: /usr/local/bin/mapnik-config
