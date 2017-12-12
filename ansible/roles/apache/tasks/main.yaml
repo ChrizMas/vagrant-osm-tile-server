@@ -1,0 +1,16 @@
+---
+- name: "Install apache packages"
+  become: "yes"
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - apache2
+    - apache2-dev
+    - libtool
+    - autoconf
+
+- name: "Clone mod-tile from github and install"
+  script: files/make-mod-tile.sh
+  args:
+    creates: /usr/lib/apache2/modules/mod_tile.so
