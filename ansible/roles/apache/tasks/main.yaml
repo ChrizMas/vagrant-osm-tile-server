@@ -10,7 +10,7 @@
     - libtool
     - autoconf
 
-- name: "Clone mod-tile from github and install"
+- name: "Clone mod-tile from github and make install"
   script: files/make-mod-tile.sh
   args:
     creates: /usr/lib/apache2/modules/mod_tile.so
