@@ -37,6 +37,6 @@
     mode: 0755
 
 - name: "Clone from github and install"
-  script: files/clone-mapnik.sh
+  script: files/make-mapnik.sh
   args:
     creates: /usr/local/bin/mapnik-config
