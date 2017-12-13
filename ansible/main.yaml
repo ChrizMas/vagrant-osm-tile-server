@@ -4,3 +4,5 @@
      - base
      - mapnik
      - apache
+     - golang
+     - imposm

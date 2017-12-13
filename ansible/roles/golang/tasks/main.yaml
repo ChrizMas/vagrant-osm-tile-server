@@ -1,0 +1,23 @@
+---
+- name: Download go1.9.2.linux-amd64.tar.gz
+  get_url:
+    url: https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz
+    dest: ~/src/go1.9.2.linux-amd64.tar.gz
+    mode: 0755
+    checksum: sha256:de874549d9a8d8d8062be05808509c09a88a248e77ec14eb77453530829ac02b
+
+- name: Extract go1.9.2.linux-amd64.tar.gz into /usr/local
+  become: "yes"
+  unarchive:
+    src: ~/src/go1.9.2.linux-amd64.tar.gz
+    dest: /usr/local
+  args:
+    creates: /usr/local/go/bin/go
+
+- name: Create go workspace
+  file:
+    path: ~/go
+    state: directory
+
+#environment:
+#  PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
