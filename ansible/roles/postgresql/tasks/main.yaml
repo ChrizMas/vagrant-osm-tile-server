@@ -1,4 +1,7 @@
 ---
+- name: "Include vars"
+  include_vars: "main.yaml"
+
 - name: "Install postgresql packages"
   become: "yes"
   apt:
@@ -15,18 +18,32 @@
   become: "yes"
   become_user: "postgres"
   postgresql_db:
-    name: osm
+    name: "{{osm_database}}"
+  when: osm_database is defined and osm_database != ""
+
+- name: "Create user renderosm"
+  become: "yes"
+  become_user: "postgres"
+  postgresql_user:
+    db: "{{osm_database}}"
+    name: "{{osm_user_name}}"
+    password: "{{osm_user_password}}"
+    priv: "ALL"
+    state: present
+  when: osm_database is defined and osm_database != "" and osm_user_name is defined and osm_user_name != "" and osm_user_password is defined and osm_user_password != ""
 
 - name: "Create extension postgis to database osm"
   become: "yes"
   become_user: "postgres"
   postgresql_ext:
     name: postgis
-    db: osm
+    db: "{{osm_database}}"
+  when: osm_database is defined and osm_database != ""
 
 - name: "Create extension hstore to database osm"
   become: "yes"
   become_user: "postgres"
   postgresql_ext:
     name: hstore
-    db: osm
+    db: "{{osm_database}}"
+  when: osm_database is defined and osm_database != ""
