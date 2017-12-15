@@ -1,6 +1,6 @@
 ---
 - name: "Include vars"
-  include_vars: "main.yaml"
+  include_vars: "database.yaml"
 
 - name: "Install postgresql packages"
   become: "yes"
