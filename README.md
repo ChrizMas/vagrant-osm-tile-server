@@ -15,6 +15,7 @@
 ## Getting started
 
 Copy vagrant.yaml.tpl to vagrant.yaml and configure all non-optional settings.
+Please edit at least the variable osm_user_password in ansible/roles/postgresql/vars/database.yaml to make sure you won't use default passwords.
 
 *Note: box.chrizmas.de is only working with vm_private_ip: "192.168.33.100".*
 
