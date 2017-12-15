@@ -9,3 +9,24 @@
     - postgresql-contrib
     - postgis
     - postgresql-9.5-postgis-2.2
+    - python-psycopg2
+
+- name: "Create database osm"
+  become: "yes"
+  become_user: "postgres"
+  postgresql_db:
+    name: osm
+
+- name: "Create extension postgis to database osm"
+  become: "yes"
+  become_user: "postgres"
+  postgresql_ext:
+    name: postgis
+    db: osm
+
+- name: "Create extension hstore to database osm"
+  become: "yes"
+  become_user: "postgres"
+  postgresql_ext:
+    name: hstore
+    db: osm
