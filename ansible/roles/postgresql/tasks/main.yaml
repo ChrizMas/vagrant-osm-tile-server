@@ -1,0 +1,11 @@
+---
+- name: "Install postgresql packages"
+  become: "yes"
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - postgresql
+    - postgresql-contrib
+    - postgis
+    - postgresql-9.5-postgis-2.2

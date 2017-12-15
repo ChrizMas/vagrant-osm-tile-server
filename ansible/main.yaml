@@ -6,3 +6,4 @@
      - apache
      - golang
      - imposm3
+     - postgresql

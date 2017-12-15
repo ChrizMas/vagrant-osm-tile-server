@@ -1,5 +1,5 @@
 ---
-- name: "Install imposm packages"
+- name: "Install imposm3 packages"
   become: "yes"
   apt:
     name: "{{item}}"
