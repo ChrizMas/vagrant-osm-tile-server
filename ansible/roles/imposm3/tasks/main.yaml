@@ -16,3 +16,13 @@
     dest: /usr/local/bin/imposm3
     mode: 0755
 
+- name: Create imposm3 folder
+  file:
+    path: ~/src/imposm3
+    state: directory
+
+- name: "Copy imposm3 default mapping to ~/src/imposm3/default-mapping.json"
+  copy:
+    src: files/default-mapping.json
+    dest: ~/src/imposm3/default-mapping.json
+    mode: 0755

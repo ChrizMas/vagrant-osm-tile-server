@@ -47,3 +47,10 @@
     name: hstore
     db: "{{osm_database}}"
   when: osm_database is defined and osm_database != ""
+
+- name: "Create OS user {{osm_user_name}}"
+  become: "yes"
+  user:
+    name: "{{osm_user_name}}"
+    password: "{{osm_user_password_sha512}}"
+    comment: "Creates OS postgresql OSM User"

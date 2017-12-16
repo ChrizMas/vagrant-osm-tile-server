@@ -1,4 +1,5 @@
 ---
 osm_user_name: "renderosm"
-osm_user_password: "ch4ngm333plz"
+osm_user_password: "f00b4r"
+osm_user_password_sha512: "$6$UznuP9zW/SX7VCE$1Tsy7ZLD3gomy0f99iAUdpf0OGIaM5fIGUr3yipDFeqWBvETCIwEi4acfv.Mry9xTCDCA2nSjC1rZssEgAASo0"
 osm_database: "osm"

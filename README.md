@@ -31,4 +31,20 @@ The osm-tile-server will automatically be provisioned by Vagrant.
 ansible-playbook -i 'localhost,' -c local /vagrant/ansible/main.yaml
 ```
 
+## Importing .pbf files via imposm3
+
+```bash
+mkdir -p ~/src/pbf
+cd ~/src/pbf
+wget http://download.geofabrik.de/europe/greece-latest.osm.pbf
+imposm3 import -connection postgis://renderosm:f00b4r@localhost/osm -mapping ~/src/imposm3/default-mapping.json -read ~/src/pbf/greece-latest.osm.pbf -write
+imposm3 import -connection postgis://renderosm:f00b4r@localhost/osm -mapping ~/src/imposm3/default-mapping.json -deployproduction
+```
+
+To check your imported tables, just connect to the database and check:
+
+```bash
+psql -h localhost -U renderosm osm
+```
+
 **Special thanks** to [Jeff Tunessen](https://github.com/elnebuloso) for the inspiration of [elnebuloso/vagrant-devbox-php](https://github.com/elnebuloso/vagrant-devbox-php) and therefore helping with the initial setup
