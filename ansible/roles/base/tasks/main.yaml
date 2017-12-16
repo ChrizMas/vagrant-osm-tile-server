@@ -55,3 +55,4 @@
     - lua5.1
     - liblua5.1-dev
     - libgeotiff-epsg
+    - htop

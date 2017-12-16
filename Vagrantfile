@@ -13,6 +13,9 @@ Vagrant.configure(2) do |config|
     config.vm.provider "virtualbox" do |v|
         v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
         v.gui = setting.fetch('vm_gui', false);
+
+        v.memory = setting.fetch('vm_memory', "4096")
+        v.cpus = setting.fetch('vm_cpus', "4")
     end
  
     config.vbguest.auto_update = setting['vm_vbguest_auto_update']
