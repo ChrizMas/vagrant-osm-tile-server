@@ -1,11 +1,18 @@
 # vagrant-osm-tile-server
 
-*CURRENTLY UNDER DEVELOPMENT*
+*NOT MAINTAINED ANYMORE*
+
+Unfortunately I am currently not able to maintain this project anymore. Feel free to fork it or use it in any kind you want!
 
 ## Features
 
-- this
-- that
+- **OSM Tile Server**: Basic installation of an OSM tile server
+- **imposm3**: Importing .pbf files into a PostgreSQL PostGIS database
+- **Ansible playbook**: Basic configuration, deployment and orchestration of the OSM tile server
+- **Vagrant**: The whole setup running locally on Vagrant to develop and test new styles
+
+## Missing Features
+- **No styles**: Currently there are no map styles in this bundle - you have to develop a style based on the imposm3 databases yourself (or you can use any other imposm3-based styles you can find)
 
 ## Table of Contents
 
